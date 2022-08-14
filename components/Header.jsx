@@ -1,8 +1,16 @@
-import React, { useContext} from 'react'
+import React, { useContext, useState, useEffect} from 'react'
 import Link from 'next/link'
+import { getCategories } from '../services';
 
-const categories = [ {name:'Some Cat', slug:'some-cat'}, {name:'Another Cat',slug: 'another-cat'}]
 function Header() {
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect( () => {
+    getCategories()
+    .then((currentCategories)=> setCategories(currentCategories))
+  },[] );
+
   return (
     <div className='container mx-auto px-10 mb-8'>
         <div className='border-b w-full inline-block border-blue-400 py-8'>
@@ -14,7 +22,7 @@ function Header() {
                 </Link>
             </div>
             <div className='hidden md:float-left md:contents'>
-            { categories.map( (cat) => ( 
+            { categories.slice(0.4).map( (cat) => (  //FIXME just taking the first n (n=4) categories, to avoid a messy header 
                 <Link key={cat.slug} href={`/category/${cat.slug}`}>
                     <span className='md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer'>
                         {cat.name}
