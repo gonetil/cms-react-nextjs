@@ -3,7 +3,8 @@ import React from 'react'
 import moment from 'moment';
 import Link from 'next/link';
 
-import {PostAuthor, PostImage} from '.'
+import PostAuthor from './artifacts/PostAuthor';
+import PostImage from './artifacts/PostImage';
 
 const PostCard = ({ post }) => {
 
