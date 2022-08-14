@@ -6,8 +6,8 @@ import Link from 'next/link';
 import {PostAuthor, PostImage} from '.'
 
 const PostCard = ({ post }) => {
-    console.log(post); 
-  return (
+
+    return (
     <div className='bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8'>
            <PostImage postTitle={post.title} imageUrl={post.featuredImage.url} />
            <h1 className='transition duration-700 text-center mb-9 cursor-pointer hover:text-pink-600 text-3xl font-semibold'>

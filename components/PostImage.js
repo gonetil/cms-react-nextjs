@@ -6,7 +6,7 @@ function PostImage({ postTitle, imageUrl }) {
             <img src={ imageUrl} 
             alt={postTitle} 
             title={postTitle}
-            className='object-top absolute h-80 w-full object-cocver shadow-lg rounded-t-lg lg:rounded-lg'/>
+            className='object-top absolute h-80 w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg'/>
         </div>
   )
 }
