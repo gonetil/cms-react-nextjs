@@ -1,4 +1,5 @@
-import {request, gql} from 'graphql-request';
+import {request, gql} from 'graphql-request'; 
+//import {fetch} from 'node-fetch';
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
@@ -52,6 +53,7 @@ export const getPostDetails = async (slug) => {
                     id
                     title
                     exceprt
+                    slug
                     authors {
                         bio
                         id
@@ -141,3 +143,30 @@ export const getCategories = async() => {
 }
 
 
+export const submitComment = async (obj) =>{
+   const result = await fetch('/api/comments', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+      },
+    body: JSON.stringify(obj)
+   })    
+   return result.json();
+}
+
+export const getComments = async (slug) => {
+    console.log('Fetching comments for ',slug)
+    const query = gql`
+      query GetComments($slug:String!) {
+        comments(where: {post: {slug:$slug}}){
+          name
+          createdAt
+          comment
+        }
+      }
+    `;
+  
+    const result = await request(graphqlAPI, query, { slug }); 
+    return result.comments;
+  };
+  
