@@ -12,7 +12,8 @@ const Comments = ({slug}) => {
     .then( (result) => {
       setPostComments(result)
       })
-    },[]);   
+    },[postComments]);   
+
     return (
       <>
         { (postComments.length > 0) ? (
