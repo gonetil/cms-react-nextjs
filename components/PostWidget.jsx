@@ -21,7 +21,6 @@ const PostWidget = ({categories,slug}) => {
 
         }
     },[slug])
-    console.log(relatedPosts);
 
   return (
     <WidgetLayout title={slug ? 'Related Posts' : 'Recent Posts'}>

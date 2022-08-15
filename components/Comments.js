@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { getComments } from '../services'
 import moment from 'moment';
 import parse from 'html-react-parser';
+import EmptyResult from './artifacts/EmptyResult';
 
 const Comments = ({slug}) => {
   
@@ -14,7 +15,7 @@ const Comments = ({slug}) => {
     },[]);   
     return (
       <>
-        {postComments.length > 0 && (
+        { (postComments.length > 0) ? (
           <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
             <h3 className="text-xl mb-8 font-semibold border-b pb-4">
               {postComments.length}
@@ -34,7 +35,8 @@ const Comments = ({slug}) => {
                 </div>
               ))}
           </div>
-        )}
+        ) : 
+        <EmptyResult>Be the first to comment this post </EmptyResult>  }
       </>
     );
 }
