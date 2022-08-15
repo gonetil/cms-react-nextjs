@@ -11,8 +11,8 @@ const Comments = ({slug}) => {
     getComments(slug)
     .then( (result) => {
       setPostComments(result)
-      })
-    },[postComments]);   
+      });
+    },[]);   
 
     return (
       <>
