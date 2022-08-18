@@ -1,8 +1,7 @@
 import React from 'react'
-import { Header, FeaturedPosts } from './';
+import { Header, FeaturedPosts, FeaturedPostsCarrousel } from './';
 import Head from 'next/head'
 import { Categories, PostWidget} from '../components'
-import FeaturedPostsCarrousel from './FeaturedPostsCarrousel.jsx'
 
 const Layout = ({ children }) => {
   return (

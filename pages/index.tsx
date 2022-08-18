@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import {PostCard, Categories, PostWidget} from '../components'
-import EmptyResult from '../components/artifacts/EmptyResult';
+import { EmptyResult }  from '../components/artifacts/';
 import { getPosts } from '../services';
 
 
